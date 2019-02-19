@@ -1,17 +1,18 @@
 <template>
   <div class="body">
     <h1>{{ msg }}</h1>
-    <div v-for='post in posts' :key='posts.indexOf(post)'>
-        {{ post.username }}
-        {{ post.filter }}
+    <div v-for='post in posts' :key="'post_' + posts.indexOf(post)">
+        <post :post='post' />
     </div>
-    <div v-for='f in filters' :key='filters.indexOf(f)'>
-        {{ f.name }}
-    </div>
+
   </div>
 </template>
 
 <script>
+
+import PostComponent from './PostComponent';
+
+
 export default {
   name: 'BodyComponent',
   props: {
@@ -20,7 +21,7 @@ export default {
     filters: Array,
   },
   components:{
-
+      "post" : PostComponent
   }
 }
 </script>
