@@ -1,9 +1,11 @@
 <template>
   <div class="body">
-    <h1>{{ msg }}</h1>
-    <div v-for='post in posts' :key="'post_' + posts.indexOf(post)">
-        <post :post='post' />
+    <div class='feed' v-dragscroll.y>
+      <div v-for='post in posts' :key="'post_' + posts.indexOf(post)">
+          <post :post='post' />
+      </div>
     </div>
+   
 
   </div>
 </template>
