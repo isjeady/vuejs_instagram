@@ -1,10 +1,22 @@
 <template>
   <div class="body">
-    <div class='feed' v-dragscroll.y>
-      <div v-for='post in posts' :key="'post_' + posts.indexOf(post)">
-          <post :post='post' />
+    <template v-if='step === 1' >
+         <div class='feed' v-dragscroll.y>
+            <div v-for='post in posts' :key="'post_' + posts.indexOf(post)">
+                <post :post='post' />
+            </div>
+        </div>
+    </template>
+    <template v-if='step === 2' >
+        <div class='selected-image'
+          :class='selectedFilter'
+          :style="{ backgroundImage: 'url(' + image + ')' }">
       </div>
-    </div>
+    </template>
+    <template v-if='step === 3' >
+
+    </template>
+   
    
 
   </div>
@@ -18,9 +30,11 @@ import PostComponent from './PostComponent';
 export default {
   name: 'BodyComponent',
   props: {
-    msg: String,
+    step: Number,
     posts: Array,
     filters: Array,
+    image: String,
+    selectedFilter: String,
   },
   components:{
       "post" : PostComponent
