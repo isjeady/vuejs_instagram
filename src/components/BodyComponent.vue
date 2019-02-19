@@ -11,6 +11,13 @@
         <div class='selected-image'
           :class='selectedFilter'
           :style="{ backgroundImage: 'url(' + image + ')' }">
+        </div>
+      <div class='filter-container' v-dragscroll.x>
+        <filter-type v-for='filter in filters'
+          :filter='filter'
+          :image='image'
+          :key='filters.indexOf(filter)'>
+        </filter-type>
       </div>
     </template>
     <template v-if='step === 3' >
@@ -24,20 +31,33 @@
 
 <script>
 
+import filters from '../data/filters';
 import PostComponent from './PostComponent';
+import FilterTypeComponent from './FilterTypeComponent';
+import EventBus from '../event-bus';
 
 
 export default {
   name: 'BodyComponent',
+  data() {
+    return {
+      filters,
+      selectedFilter: '',
+    };
+  },
   props: {
     step: Number,
     posts: Array,
-    filters: Array,
     image: String,
-    selectedFilter: String,
+  },
+  created() {
+    EventBus.$on('filter-selected', (evt) => {
+      this.selectedFilter = evt.filter;
+    });
   },
   components:{
-      "post" : PostComponent
+      "post" : PostComponent,
+      'filter-type': FilterTypeComponent,
   }
 }
 </script>

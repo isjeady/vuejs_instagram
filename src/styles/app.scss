@@ -103,12 +103,23 @@ body,
 .footer {
   height: 35px;
   width: 375px;
-  position: sticky;
-  position: -webkit-sticky;
+  position: absolute;
+  /*position: sticky;
+  position: -webkit-sticky;*/
   bottom: 0;
   background: #fafafa;
   border-top: 1px solid #eeeeee;
   z-index: 99;
+
+  .cancel-cta {
+    left: 10px;
+    float: left;
+  }
+
+  .next-cta {
+    right: 10px;
+    float: right;
+  }
 
   .home-cta {
     position: absolute;

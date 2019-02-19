@@ -7,17 +7,15 @@
      
       <body-component 
         :posts='posts' 
-        :filters='filters' 
         :step='step'
         :image='image'
-        :selectedFilter='selectedFilter'
       />
      
       <div class="footer">
-        <div class="home-icon">
+        <div class="home-icon cancel-cta">
           <i class="fas fa-home fa-lg"></i>
         </div>
-        <div class="upload-icon">
+        <div class="upload-icon next-cta">
            <input type='file'
             name='file'
             id='file'
@@ -38,7 +36,7 @@
 import BodyComponent from './components/BodyComponent.vue'
 
 import posts from './data/posts';
-import filters from './data/filters';
+
 
 export default {
   name: 'app',
@@ -46,9 +44,7 @@ export default {
     return {
       step: 1,
       posts,
-      filters,
       image : '' ,
-      selectedFilter: '',
     };
   },
   methods: {

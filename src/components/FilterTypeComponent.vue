@@ -13,7 +13,7 @@
 import EventBus from '../event-bus';
 
 export default {
-  name: 'FilterType',
+  name: 'FilterTypeComponent',
   props: {
     filter: Object,
     image: String,
