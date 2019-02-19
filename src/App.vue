@@ -1,28 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="app-phone">
+      <div class="header">
+        <img alt="Vue logo" src="./assets/logo.png" width="60px">
+      </div>
+     
+      <body-component :posts='posts' />
+      
+      <div class="footer">
+        <div class="home-icon">
+          <i class="fas fa-home fa-lg"></i>
+        </div>
+        <div class="upload-icon">
+          <i class="far fa-plus-square fa-lg"></i>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BodyComponent from './components/BodyComponent.vue'
+
+import posts from './data/posts';
 
 export default {
   name: 'app',
+  data() {
+    return {
+      posts,
+      filters : '',
+    };
+  },
   components: {
-    HelloWorld
+    "body-component" : BodyComponent
   }
 }
 </script>
 
 <style lang='scss' src='./styles/app.scss'>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

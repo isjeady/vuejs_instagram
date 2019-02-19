@@ -10,6 +10,9 @@ body,
   overflow: hidden;
   background: #e6ecf1;
   font-family: "Roboto", sans-serif;
+}
+
+#app {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,14 +111,14 @@ body,
   border-top: 1px solid #eeeeee;
   z-index: 99;
 
-  .home-cta {
+  .home-icon {
     position: absolute;
     left: 10px;
     top: 6px;
     cursor: pointer;
   }
 
-  .upload-cta {
+  .upload-icon {
     position: absolute;
     right: 10px;
     top: 6px;
