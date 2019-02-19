@@ -3,6 +3,10 @@
     <h1>{{ msg }}</h1>
     <div v-for='post in posts' :key='posts.indexOf(post)'>
         {{ post.username }}
+        {{ post.filter }}
+    </div>
+    <div v-for='f in filters' :key='filters.indexOf(f)'>
+        {{ f.name }}
     </div>
   </div>
 </template>

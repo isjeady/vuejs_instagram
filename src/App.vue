@@ -5,7 +5,7 @@
         <img alt="Vue logo" src="./assets/logo.png" width="60px">
       </div>
      
-      <body-component :posts='posts' />
+      <body-component :posts='posts' :filters='filters' />
       
       <div class="footer">
         <div class="home-icon">
@@ -23,13 +23,14 @@
 import BodyComponent from './components/BodyComponent.vue'
 
 import posts from './data/posts';
+import filters from './data/filters';
 
 export default {
   name: 'app',
   data() {
     return {
       posts,
-      filters : '',
+      filters,
     };
   },
   components: {
